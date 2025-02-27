@@ -48,7 +48,7 @@ export default function prettyNum(value, {precision, precisionSetting, roundingM
             closeValue = reducer(closeValue, key);
         }
 
-        const result = (temporaryNum / Number(closeValue)).toString();
+        const result = Math.floor(temporaryNum / Number(closeValue)).toString();
         return addSuffix(result, objs[closeValue]);
     }
 
