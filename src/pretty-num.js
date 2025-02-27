@@ -32,8 +32,6 @@ export default function prettyNum(value, {precision, precisionSetting, roundingM
         let v = 1;
         const temporaryNum = Number(num);
         const objs = [];
-        const keys = Object.keys(objs);
-        let closeValue;
 
         for (let index = 0, l = units.length; index < l; index += 1) {
             v *= stepValue;
@@ -41,6 +39,9 @@ export default function prettyNum(value, {precision, precisionSetting, roundingM
         }
 
         const reducer = (a, c) => (Math.abs(Number(a) - temporaryNum) < Math.abs(Number(c) - temporaryNum) ? a : c);
+
+        const keys = Object.keys(objs);
+        let closeValue;
 
         for (let index = 0, l = keys.length; index < l; index += 1) {
             const key = keys[index];
